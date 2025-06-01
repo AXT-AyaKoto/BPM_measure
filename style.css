@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;500;700&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/* リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基本スタイル */
+body {
+    font-family: 'Ubuntu', 'M PLUS 1p', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #ffffff;
+    background: linear-gradient(135deg,
+            oklch(from #222244 0.6 0.2 calc(h - 60)),
+            oklch(from #222244 0.6 0.2 h),
+            oklch(from #222244 0.6 0.2 calc(h + 60)));
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ヘッダー */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* メインコンテンツ */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* グラスモーフィズム共通スタイル */
+.instructions,
+.bpm-main,
+.bpm-variant,
+.visualization {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* 指示セクションは少し大きめに */
+.instructions {
+    padding: 1.2rem;
+}
+
+/* メインBPMセクションは少し大きめに */
+.bpm-main {
+    padding: 1.2rem;
+}
+
+/* 2倍速・半分速のセクションをより小さく */
+.bpm-variant {
+    padding: 0.8rem;
+}
+
+.instructions:hover,
+.bpm-main:hover,
+.bpm-variant:hover,
+.visualization:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.5);
+}
+
+/* 指示セクション */
+.instructions {
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+/* メインBPMセクション */
+.bpm-main {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.bpm-main h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    font-weight: 300;
+}
+
+.bpm-value {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1;
+    background: linear-gradient(135deg, #ffffff, #dddddd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* BPM変換値セクション */
+.bpm-variant h3 {
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    font-weight: 300;
+}
+
+.bpm-value-small {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1;
+    background: linear-gradient(135deg, #ffffff, #dddddd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* ビジュアライゼーションセクション */
+.visualization {
+    padding: 0.8rem;
+}
+
+.visualization h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 0 0 0.8rem 0;
+    font-weight: 300;
+}
+
+#data-canvas {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    aspect-ratio: 500 / 200;
+}
+
+/* グリッドレイアウト（タブレット以上） */
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "instructions instructions"
+            "bpm-main bpm-main"
+            "bpm-double bpm-half"
+            "visualization visualization";
+    }
+
+    .instructions {
+        grid-area: instructions;
+    }
+
+    .bpm-main {
+        grid-area: bpm-main;
+    }
+
+    .bpm-variant:nth-of-type(3) {
+        grid-area: bpm-double;
+    }
+
+    .bpm-variant:nth-of-type(4) {
+        grid-area: bpm-half;
+    }
+
+    .visualization {
+        grid-area: visualization;
+    }
+}
+
+/* フッター */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    text-align: center;
+    padding: 1.5rem 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer p {
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 767px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        margin: 1rem auto;
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+
+    .instructions,
+    .bpm-main,
+    .bpm-variant,
+    .visualization {
+        padding: 1.5rem;
+    }
+
+    .bpm-value {
+        font-size: 3rem;
+    }
+
+    .bpm-value-small {
+        font-size: 2rem;
+    }
+
+    #data-canvas {
+        width: 100%;
+        aspect-ratio: 500 / 200;
+    }
+}

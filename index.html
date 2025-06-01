@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXT-AyaKoto/BPM_measure</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>AXT-AyaKoto/BPM_measure</h1>
+    </header>
+
+    <main>
+        <section class="instructions">
+            <p>スペースで記録、Xでリセット</p>
+        </section>
+
+        <!-- メインBPM表示 -->
+        <section class="bpm-main">
+            <h2>推測BPM</h2>
+            <div id="estimated-bpm" class="bpm-value">--</div>
+        </section>
+
+        <!-- 2倍速BPM -->
+        <section class="bpm-variant">
+            <h3>2倍速</h3>
+            <div id="bpm-double" class="bpm-value-small">--</div>
+        </section>
+
+        <!-- 半分速BPM -->
+        <section class="bpm-variant">
+            <h3>半分速</h3>
+            <div id="bpm-half" class="bpm-value-small">--</div>
+        </section>
+
+        <!-- データ分布ビジュアライゼーション -->
+        <section class="visualization">
+            <h3>実測データの分布</h3>
+            <canvas id="data-canvas" width="500" height="200"></canvas>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025- Ayasaka-Koto with GitHub Copilot Chat, All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
