@@ -1,0 +1,4 @@
+- This project does not use any external libraries.
+    - It uses only web standards: HTML, CSS, JavaScript, and ECMAScript Modules.
+- To check type consistency, we use JSDoc and `//@ts-check`.
+- Since the developers' native language is Japanese, you must output comments and explanations in Japanese.
