@@ -400,5 +400,27 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+// instructions要素のクリック/タップイベントリスナーを登録
+const instructionsElement = document.getElementById('instructions');
+if (instructionsElement) {
+    instructionsElement.addEventListener('click', () => {
+        // スペースキー押下と同じ処理を実行
+        recordTimestamp();
+        calcAndUpdate();
+        drawGraph();
+    });
+
+    // タッチデバイス対応
+    instructionsElement.addEventListener('touchend', (event) => {
+        // デフォルトのタッチ動作を防止（ダブルタップズームなど）
+        event.preventDefault();
+
+        // スペースキー押下と同じ処理を実行
+        recordTimestamp();
+        calcAndUpdate();
+        drawGraph();
+    });
+}
+
 // モジュールとして認識させるためのexport
 export { spaceKeyTimestamps };

@@ -113,6 +113,16 @@ main {
 /* 指示セクションは少し大きめに */
 .instructions {
     padding: 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.instructions:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 /* メインBPMセクションは少し大きめに */
